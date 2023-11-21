@@ -22,14 +22,22 @@ intents.message_content = True
 async def on_ready():
   print(f"log in as {client.user}: {client.user.id}")
   someloop.start()
-  
-  
-member_id = 920722041542426687
+
 
 @tasks.loop(seconds=1)
 async def someloop():
-  channel=client.get_channel(1053585169182896228)
-  await channel.send('cổn lò')
+  # member=client.get_member(920722041542426687)
+  guild = client.get_guild(1053081261394116778)
+  member = guild.get_member(920722041542426687)
+  global a
+  a=0
+  print(a)
+  target_date = datetime(2024, 2, 10, tzinfo=pytz.timezone('Asia/Ho_Chi_Minh'))
+  current_date = datetime.now(pytz.timezone('Asia/Ho_Chi_Minh'))
+
+  remaining_days = (target_date - current_date).days
+  a=a+1
+  # await member.edit('cổn lò')
   
 # @client.command()
 # async def chnick(ctx, nick):
@@ -63,5 +71,4 @@ async def someloop():
 intents = discord.Intents.default()
 intents.message_content = True
 
-# change_nickname().start
 client.run(os.environ['discord_token'])
