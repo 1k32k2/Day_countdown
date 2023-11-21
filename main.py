@@ -29,14 +29,16 @@ async def someloop():
   # member=client.get_member(920722041542426687)
   guild = client.get_guild(1053081261394116778)
   member = guild.get_member(920722041542426687)
-  global a
-  a=0
+  second_now = datetime.now().second
+  a=1
+  print(second_now)
   print(a)
-  target_date = datetime(2024, 2, 10, tzinfo=pytz.timezone('Asia/Ho_Chi_Minh'))
-  current_date = datetime.now(pytz.timezone('Asia/Ho_Chi_Minh'))
+  print(second_now-a)
+  await member.edit(nick=second_now-a)
+  # target_date = datetime(2024, 2, 10, tzinfo=pytz.timezone('Asia/Ho_Chi_Minh'))
+  # current_date = datetime.now(pytz.timezone('Asia/Ho_Chi_Minh'))
 
-  remaining_days = (target_date - current_date).days
-  a=a+1
+  # remaining_days = (target_date - current_date).days
   # await member.edit('cổn lò')
   
 # @client.command()
