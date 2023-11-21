@@ -21,8 +21,16 @@ intents.message_content = True
 @client.event
 async def on_ready():
   print(f"log in as {client.user}: {client.user.id}")
+  someloop.start()
+  
   
 member_id = 920722041542426687
+
+@tasks.loop(seconds=1)
+async def someloop():
+  channel=client.get_channel(1053585169182896228)
+  await channel.send('cổn lò')
+  
 # @client.command()
 # async def chnick(ctx, nick):
 #     member = ctx.guild.get_member(member_id)
@@ -31,26 +39,29 @@ member_id = 920722041542426687
 #         await ctx.send(f'Nickname was changed for {member.mention} ')
 #     else:
 #         await ctx.send("Member not found")
+# @client.listen()
+# async def on_ready():
+#   change_nickname.start() ########################################################
+  
+# count = 1
+# @tasks.loop(seconds=10)  # Run every 24 hours
+# async def change_nickname():
+#     # target_date = datetime(2024, 2, 10, tzinfo=pytz.timezone('Asia/Ho_Chi_Minh'))
+#     # current_date = datetime.now(pytz.timezone('Asia/Ho_Chi_Minh'))
 
-count = 1
-@tasks.loop(seconds=10)  # Run every 24 hours
-async def change_nickname():
-    # target_date = datetime(2024, 2, 10, tzinfo=pytz.timezone('Asia/Ho_Chi_Minh'))
-    # current_date = datetime.now(pytz.timezone('Asia/Ho_Chi_Minh'))
-
-    # if current_date.date() == target_date.date():
-    #     member = guild.get_member(member_id)
-    #     if member:
-    #         new_nickname = "NewNickname"  # Set the new nickname here
-    #         await member.edit(nick=new_nickname)
-  member = guild.get_member(member_id)
-  new_nickname = "{count}" # Set the new nickname here
-  count=count+1
-  await member.edit(nick=new_nickname)
+#     # if current_date.date() == target_date.date():
+#     #     member = guild.get_member(member_id)
+#     #     if member:
+#     #         new_nickname = "NewNickname"  # Set the new nickname here
+#     #         await member.edit(nick=new_nickname)
+#   member = guild.get_member(member_id)
+#   new_nickname = "{count}" # Set the new nickname here
+#   count=count+1
+#   await member.edit(nick=new_nickname)
 
 
 intents = discord.Intents.default()
 intents.message_content = True
 
-change_nickname().start
+# change_nickname().start
 client.run(os.environ['discord_token'])
