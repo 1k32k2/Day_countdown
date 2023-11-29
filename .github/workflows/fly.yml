@@ -3,8 +3,7 @@ on:
   push:
     branches:
       - master
-  permissions:
-    actions: write
+      
 jobs:
   deploy:
     name: Deploy app
