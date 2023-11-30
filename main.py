@@ -3,7 +3,6 @@ from discord.ext import tasks, commands
 import os
 import datetime
 import pytz
-# from keep_alive import keep_alive
 
 client = commands.Bot(command_prefix='$', intents = discord.Intents.all())
 intents = discord.Intents.all()
@@ -30,40 +29,26 @@ async def change_nickname():
   else: 
     await member.edit(nick = 'Happy New Year!!!')
 
-@tasks.loop(minutes = 1)
+@tasks.loop(minutes = 10)
 async def change_channel_name():
   guild = client.get_guild(1053081261394116778)
   channel = guild.get_channel(1178870060866085034)
   current_time = datetime.datetime.now(pytz.timezone('Asia/Ho_Chi_Minh'))
   target_date = datetime.datetime(2023, 12, 24, tzinfo=pytz.timezone('Asia/Ho_Chi_Minh'))
   remaining_days = target_date - current_time
-  remaining_seconds = remaining_days.days * 24 * 3600 + remaining_days.seconds
- 
+  remaining_seconds = remaining_days.days * 24 * 3600 + remaining_days.seconds 
+  
   days = remaining_seconds // (24 * 3600) 
-
+  
   remaining_seconds = remaining_seconds % (24 * 3600) 
   hours = remaining_seconds // 3600
-
+  
   remaining_seconds %= 3600
   minutes = remaining_seconds // 60
 
-  # remaining_seconds %= 60
-  # seconds = remaining_seconds
-  
   await channel.edit(name = f'{days}D {hours}H {minutes}M to Noel')
 
 intents = discord.Intents.default()
 intents.message_content = True
 
 client.run(os.environ['DISCORD_TOKEN'])
-# while __name__ == '__main__':
-#   try:
-#     keep_alive()
-#     client.run(os.environ['DISCORD_TOKEN'])
-#   except discord.errors.HTTPException as e:
-#     print(e)
-#     print("\n\n\nBLOCKED BY RATE LIMITS\nRESTARTING NOW\n\n\n")
-#     os.system('kill 1')
-
-# keep_alive()
-# client.run(os.environ['DISCORD_TOKEN']) v 
