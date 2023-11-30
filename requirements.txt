@@ -6,7 +6,6 @@ blinker==1.7.0
 click==8.1.7
 discord==2.3.2
 discord.py==2.3.2
-flask==3.0.0
 frozenlist==1.4.0
 idna==3.4
 itsdangerous==2.1.2
