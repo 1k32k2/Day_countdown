@@ -29,7 +29,7 @@ async def change_nickname():
   else: 
     await member.edit(nick = 'Happy New Year!!!')
 
-@tasks.loop(minutes = 10)
+@tasks.loop(minutes = 11)
 async def change_channel_name():
   guild = client.get_guild(1053081261394116778)
   channel = guild.get_channel(1178870060866085034)
@@ -47,7 +47,7 @@ async def change_channel_name():
   minutes = remaining_seconds // 60
 
   await channel.edit(name = f'{days}D {hours}H {minutes}M to Noel')
-
+  
 intents = discord.Intents.default()
 intents.message_content = True
 
