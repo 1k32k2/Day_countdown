@@ -33,6 +33,8 @@ async def change_nickname():
 async def change_channel_name():
   guild = client.get_guild(1053081261394116778)
   channel = guild.get_channel(1178870060866085034)
+  bot = guild.get_member(889043536555687936)
+  
   current_time = datetime.datetime.now(pytz.timezone('Asia/Ho_Chi_Minh'))
   target_date = datetime.datetime(2023, 12, 24, tzinfo=pytz.timezone('Asia/Ho_Chi_Minh'))
   remaining_days = target_date - current_time
@@ -47,6 +49,7 @@ async def change_channel_name():
   minutes = remaining_seconds // 60
 
   await channel.edit(name = f'{days}D {hours}H {minutes}M to Noel')
+  await bot.edit(nick = f'{days}D to Noel')
   
 intents = discord.Intents.default()
 intents.message_content = True
