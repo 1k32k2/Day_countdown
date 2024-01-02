@@ -36,7 +36,7 @@ async def change_channel_name():
   bot = guild.get_member(889043536555687936)
   
   current_time = datetime.datetime.now(pytz.timezone('Asia/Ho_Chi_Minh'))
-  target_date = datetime.datetime(2024, 1, 1, tzinfo=pytz.timezone('Asia/Ho_Chi_Minh'))
+  target_date = datetime.datetime(2024, 2, 10, tzinfo=pytz.timezone('Asia/Ho_Chi_Minh'))
   remaining_days = target_date - current_time
   remaining_seconds = remaining_days.days * 24 * 3600 + remaining_days.seconds 
   
