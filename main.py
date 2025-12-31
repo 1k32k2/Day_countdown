@@ -102,8 +102,7 @@ async def change_channel_name():
     log.exception("Failed to edit channel name %s", CHANNEL_ID)
 
 
-# token = os.getenv('DISCORD_TOKEN')
-token = 'ODg5MDQzNTM2NTU1Njg3OTM2.GE7hlv.77yctKm_X4ZWUgnJmi9rHXG24PVgYdlgo3LJU0'
+token = os.getenv('DISCORD_TOKEN')
 if not token:
   log.error('DISCORD_TOKEN environment variable not set. Exiting.')
 else:
