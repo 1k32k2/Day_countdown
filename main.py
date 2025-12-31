@@ -36,6 +36,7 @@ CHAN_TARGET_DATE = parse_iso_date('DC_CHAN_TARGET', '2026-02-17')
 
 intents = discord.Intents.default()
 intents.message_content = True
+intents.members = True
 
 client = commands.Bot(command_prefix='$', intents=intents)
 
